@@ -188,6 +188,9 @@ const componentStructure = {
     "Only min. level sensor": [
       "Only min. level sensor"
     ],
+    "Maximum level sensor": [
+      "Maximum level sensor"
+    ],
     "Full level indicator": [
       "COLDPIPE",
       "WEKA"

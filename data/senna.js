@@ -234,6 +234,9 @@ machineData.push({
       "Only min. level sensor": {
         "Only min. level sensor": { status: "std" },
       },
+      "Maximum level sensor": {
+        "Maximum level sensor": { status: "opt" },
+      },
       "Full level indicator": {
         COLDPIPE: { status: "opt", details: "With 2 sensors" },
         WEKA: { status: "na", details: "With 3 sensors" },

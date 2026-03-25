@@ -1,25 +1,25 @@
-// data/senna-mini-small.js
-// Contains the specific data for the "Senna mini/small" machine model.
+// data/senna-xs.js
+// Contains the specific data for the "SENNA-XS" machine model.
 
 machineData.push({
-  modelName: "Senna mini/small",
+  modelName: "SENNA-XS",
   statuses: {
     "Capacity": {
       "MT cooling capacity": {
-        "Max cooling capacity @-8°C, Pgc=92bar, Tout_GC=36°C": { value: "100 kW" },
-        "Min cooling capacity @-8°C, Pgc=92bar, Tout_GC=36°C": { value: "70" },
-        "Max n° MT compressors (4 cilindri)": { value: "3" },
-        "Max n° AUX compressors (4 cilindri)": { status: "na" },
+        "Max cooling capacity @-8°C, Pgc=92bar, Tout_GC=36°C": { value: "400 kW", note: "*" },
+        "Min cooling capacity @-8°C, Pgc=92bar, Tout_GC=36°C": { value: "55 kW", note: "*" },
+        "Max n° MT compressors (4 cilindri)": { value: "4/6/4", note: "" },
+        "Max n° AUX compressors (4 cilindri)": { value: "2", note: "" },
         "Secondary MT capacity": { status: "na" }
       },
       "LT cooling capacity": {
         "LT cooling capacity": { status: "opt" },
         "Max cooling capacity @-32°C, Pgc=92bar, Tout_GC=36°C": { value: "" },
-        "Max n° LT compressors": { value: "2" },
+        "Max n° LT compressors": { value: "4", note: "" },
         "Secondary LT capacity": { status: "na" }
       },
       "Pressures": {
-        "HP": { value: "120" },
+        "HP": { value: "120/130 OPT" },
         "IP RIC": { value: "60/80 OPT" },
         "IP": { value: "80" },
         "MT": { value: "52 STD" },
@@ -28,7 +28,9 @@ machineData.push({
     },
     "Special configuration": {
       "Parallel compression": {
-        "Parallel compression": { status: "na" },
+        "Parallel compression": { status: "opt",
+          note: "",
+         },
       },
       "Detached Electrical Panel": {
         "Detached Electrical Panel": { status: "opt" },
@@ -55,10 +57,10 @@ machineData.push({
     },
     frame: {
       "Full welded iron frame": {
-        "Full welded iron frame": { status: "std" },
+        "Full welded iron frame": { status: "na" },
       },
       "Metal sheet frame with rivets": {
-        "Metal sheet frame with rivets": { status: "na" },
+        "Metal sheet frame with rivets": { status: "std" },
       },
     },
     cladding: {
@@ -72,13 +74,13 @@ machineData.push({
       brand: {
         DORIN: { status: "std" },
         BITZER: { status: "opt" },
-        "BITZER+VARISTEP (CR2) (IQ MODULE INCLUDED)": { status: "opt" },
+        "BITZER+VARISTEP (CR2) (IQ MODULE INCLUDED)": { status: "na" },
         "BITZER+IQ MODULE(CM-RC-01)": { status: "opt" },
       },
       "pressure switches": {
-        "1 x SUCTION": { status: "opt" },
+        "1 x SUCTION": { status: "na" },
         "1 x DISCHARGE": { status: "std" },
-        "2 x DISCHARGE": { status: "opt" },
+        "2 x DISCHARGE": { status: "na" },
       },
       "TK3 Teklab": {
         "TK3 Teklab": { status: "std" },
@@ -89,23 +91,23 @@ machineData.push({
     },
     inverters: {
       "N°1 inverter for each suction line": {
-        IP55: { status: "opt" },
-        IP21: { status: "std" },
+        IP55: { status: "std" },
+        IP21: { status: "na" },
       },
       "N°2 inverter for MT line": {
         "N°2 inverter for MT line": { status: "na" },
       },
       "Inverter bypass": {
         "Inverter bypass": {
-          status: "opt*",
-          note: "*Only upon request and approval by Massimiliano.",
+          status: "na",
+          note: "",
         },
       },
     },
     "oil management": {
       "oil separator": {
-        "Oil separator (Temprite) + Solenoid Valve": { status: "na" },
-        "Bypass oil separator": { status: "na" },
+        "Oil separator (ESK) + Solenoid Valve": { status: "std" },
+        "Bypass oil separator": { status: "opt" },
       },
       "oil tank": {
         "Oil tank": { status: "std" },
@@ -118,8 +120,8 @@ machineData.push({
     },
     "Gas Cooler section": {
       Connections: {
-        INOX: { status: "std" },
-        K65: { status: "opt" },
+        INOX: { status: "opt" },
+        K65: { status: "std" },
       },
       "GAS COOLER": { "GAS COOLER": { status: "opt" } },
       "Epoxy Treatment": { "Epoxy Treatment": { status: "opt" } },
@@ -130,10 +132,10 @@ machineData.push({
         },
       },
       Bypass: {
-        "Manual Bypass": { status: "opt" },
+        "Manual Bypass": { status: "na" },
         "Automatic V-Port Bypass": {
-          status: "opt",
-          details: "(1 x 3-w + Belimo V-PORT) + Check valve",
+          status: "opt*",
+          details: "* Only as SPARE PARTS (1 x 3-w + Belimo V-PORT) + Check valve",
         },
       },
     },
@@ -141,7 +143,7 @@ machineData.push({
       INTERCOOLER: { INTERCOOLER: { status: "opt" } },
       Connections: {
         INOX: { status: "opt" },
-        K65: { status: "opt" },
+        K65: { status: "std" },
       },
       Bypass: {
         "Manual Bypass": { status: "na" },
@@ -159,7 +161,7 @@ machineData.push({
       "Only if intercooler is present": {
         "Muffler on LT discharge": {
           status: "opt*",
-          note: "*Supplied ONLY as spare parts, only on request",
+          note: "*Supplied as spare parts ON REQUEST",
         },
       },
     },
@@ -178,7 +180,7 @@ machineData.push({
           details: "1 x 3-way bass valves + Belimo ON/OFF",
         },
         "Exchanger Automatic V-PORT Bypass": {
-          status: "opt",
+          status: "na",
           details: "1 x 3-way bass valves + Belimo V-PORT",
         },
         "Manual Bypass": {
@@ -194,7 +196,7 @@ machineData.push({
           details: "(1 x 3-way bass valves + Belimo ON/OFF) +  (2-way MANUAL)",
         },
         "Exchanger Automatic V-PORT Bypass": {
-          status: "opt",
+          status: "na",
           details: "(1 x 3-way bass valves + Belimo V-PORT) +  (2-way MANUAL)",
         },
         "Manual Bypass": {
@@ -219,7 +221,7 @@ machineData.push({
         "Electronic": { status: "std" }
       },
       "Mechanical": {
-        "Mechanical": { status: "opt" }
+        "Mechanical": { status: "na" }
       },
       "Backup (electronic)": {
         "Backup (electronic)": { status: "opt*",
@@ -233,10 +235,10 @@ machineData.push({
         "Only min. level sensor": { status: "std" },
       },
       "Maximum level sensor": {
-        "Maximum level sensor": { status: "na" },
+        "Maximum level sensor": { status: "opt" },
       },
       "Full level indicator": {
-        COLDPIPE: { status: "opt", details: "With 2 sensors" },
+        COLDPIPE: { status: "na", details: "With 2 sensors" },
         WEKA: { status: "na", details: "With 3 sensors" },
       },
       Filter: {
@@ -250,19 +252,19 @@ machineData.push({
         "Expansion valve + Driver": {
           status: "opt*",
           note:
-            "*Probes: 1xTemperature, 1x Pressure included. ExV with Carel Controller, CCMT with other controllers.",
+            "*Probes: 1xTemperature, 1x Pressure included. CCMT + EVD Carel or CCMT with AK-CC.",
         },
       },
     },
     "Connections to evaporators": {
       Material: {
-        INOX: { status: "opt" },
+        INOX: { status: "opT" },
         K65: { status: "std" },
       },
     },
     "LT return line": {
       "Suction liquid plate exchanger": {
-        "Suction liquid plate exchanger": { status: "na" },
+        "Suction liquid plate exchanger": { status: "std" },
       },
       "Suction accumulator LT": {
         "Suction accumulator LT": { status: "na" },
@@ -271,35 +273,35 @@ machineData.push({
     },
     "MT return line": {
       "Suction accumulator MT": {
-        "Suction accumulator MT": { status: "std*",
-          note: "*Including oil tank",
-         },
+        "Suction accumulator MT": { status: "std" },
       },
       Filter: { Filter: { status: "std" } },
       "Ejectors": {
         "Liquid ejector": { status: "opt*",
-          note: "*Only Danfoss ejector",
+          note: "*only Danfoss ejector",
          },
-        "Vapour ejector": { status: "na" },
+        "Vapour ejector": { status: "na*",
+          note: "*Option for Senna-P. Only Danfoss ejector",
+         },
       },
     },
     "Backup unit": {
       Refrigerant: {
         R134A: {
           status: "opt*",
-          note: "*Factory mounted only if cladding option is selected",
+          note: "*SPARE PARTS. Factory mounted only if cladding option is selected.",
         },
         R290: {
           status: "opt*",
-          note: "*Factory mounted only if cladding option is selected",
+          note: "*SPARE PARTS. Factory mounted only if cladding option is selected.",
         },
       },
     },
     "Electrical Panel (EP)": {
       "Main controller": {
         "Danfoss/Carel": { status: "std" },
-        Dixell: { status: "opt" },
-        Wurm: { status: "opt" },
+        Dixell: { status: "na" },
+        Wurm: { status: "na" },
       },
       "Backup controller": {
         "Backup controller as spare parts": {
@@ -313,19 +315,19 @@ machineData.push({
       },
       "Brake current Icc": {
         "10kA": { status: "std" },
-        ">10kA <25kA": { status: "opt" },
+        ">10kA <35kA": { status: "opt" },
       },
       "Electrical departures 230V or 380V": {
         "Electrical departures 230V or 380V": {
-          status: "opt*",
-          note: "*Supplied in a separate box",
+          status: "na*",
+          note: "*If necessary, we supply a separate box",
         },
       },
       "Differential protections on compressors": {
         "Differential protections on compressors": { status: "opt" },
       },
       "Bobina MX": { "Bobina MX": { status: "opt" } },
-      UPS: { UPS: { status: "na" } },
+      UPS: { UPS: { status: "opt" } },
       "AOE Panel": { "AOE Panel": { status: "na" } },
     },
     Wiring: {
@@ -350,7 +352,8 @@ machineData.push({
       "Oil tank": {
         Single: { status: "std" },
         Double: {
-          status: "na",
+          status: "opt",
+          note: "",
         },
       },
       "Suction Accumulators": {

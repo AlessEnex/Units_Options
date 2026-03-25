@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Standardization</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="legend">
+        <div class="legend-title">Legend</div>
+        <div class="legend-item">
+            <span class="status-dot status-standard"></span>
+            <span>Standard</span>
+        </div>
+        <div class="legend-item">
+            <span class="status-dot status-optional"></span>
+            <span>Optional</span>
+        </div>
+        <div class="legend-item">
+            <span class="status-dash">-</span>
+            <span>Not Available</span>
+        </div>
+    </div>
+
+    <h1>Machine Standardization</h1>
+
+    <label for="machine-select">Select a model:</label>
+    <select id="machine-select"></select>
+
+    <div id="components-container"></div>
+
+    <!-- The order of these scripts is important! -->
+
+    <!-- 1. Master component structure -->
+    <script src="componentStructure.js"></script>
+    <!-- 2. Initialize the data container -->
+    <script src="machineData.js"></script>
+    <!-- 3. Load data for each model (add new models here) -->
+    <script src="data/drava-small.js"></script>
+    <script src="data/drava-top-maxi.js"></script>
+    <script src="data/tago.js"></script>
+    <script src="data/senna-mini-small.js"></script>
+    <script src="data/senna.js"></script>
+    <script src="data/neva.js"></script>
+    <script src="data/lt-unit.js"></script>
+    <script src="data/elba.js"></script>
+    <script src="data/yukon.js"></script>
+    <!-- 4. Application logic -->
+    <script src="app.js"></script>
+
+</body>
+</html>

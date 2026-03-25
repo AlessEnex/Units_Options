@@ -1,0 +1,309 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 2em;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+h1 {
+    color: #333;
+}
+
+h2 {
+    width: 100%;
+}
+
+h3 {
+    color: white;
+    margin: 0;
+    padding: 12px;
+    font-size: 1.3em;
+    display: flex;
+    align-items: center;
+}
+
+h4 {
+    color: #333;
+    font-size: 1.1em;
+    margin: 0;
+    padding: 0;
+}
+
+label {
+    font-weight: bold;
+}
+
+select {
+    padding: 8px;
+    margin-left: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+#components-container {
+    margin-top: 2em;
+}
+
+.model-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 1em;
+    margin-bottom: 2em;
+    display: block; /* To apply margins correctly */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.section-icon {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.icon-wrapper {
+    display: inline-flex;
+    width: 1.5em;
+    height: 1.3em; /* Roughly matches h3 font-size */
+    justify-content: center;
+    align-items: center;
+    margin-right: 8px;
+}
+
+/* New Single Table Styles */
+.single-view-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    margin-bottom: 2em; /* Add space between cards */
+    overflow: hidden; /* Ensures border-radius is respected */
+}
+
+.single-view-table thead th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    padding: 12px;
+    text-align: left;
+    border-bottom: 2px solid #ddd;
+}
+
+.single-view-table thead th:first-child,
+.sub-category-title-cell {
+    width: 300px; /* Define a width for the new 'Group' column */
+    border-right: 1px solid #e0e0e0; /* Visual separator */
+    vertical-align: middle;
+}
+
+/* For cells with rowspan, ensure vertical alignment is at the top */
+.single-view-table td[rowspan] {
+    vertical-align: middle;
+}
+
+.single-view-table td {
+    padding: 12px;
+    text-align: left;
+    vertical-align: middle;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.single-view-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Main Category Row (the old card titles) */
+.main-category-row td {
+    background-color: #adb5bd;
+    padding: 0;
+    border-bottom: 2px solid #6c757d;
+    cursor: pointer;
+    position: relative;
+    user-select: none; /* Prevent text selection on click */
+}
+
+/* Collapsible indicator (+/-) on the main category row */
+.main-category-row h3::after {
+    content: '+';
+    position: absolute;
+    right: 20px;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: white;
+}
+
+.collapsible-section:not(.collapsed) .main-category-row h3::after {
+    content: '−'; /* Minus sign */
+}
+
+/* When a section is collapsed, hide all its rows except the first one (the header) */
+.collapsible-section.collapsed > tr:not(:first-child) {
+    display: none;
+}
+
+/* Alternating Row Colors for sub-card groups */
+.row-bg-even {
+    background-color: #fff;
+}
+
+.row-bg-odd {
+    background-color: #f7f8fc; /* A very light, neutral color */
+}
+
+/* Hide note column if no notes exist in the model */
+.single-view-table.table-no-notes .note-cell {
+    display: none;
+}
+
+/* 5. Cella e allineamento dei pallini (Senza usare Flexbox sulla cella) */
+.status-indicator-cell {
+    width: 80px; /* Larghezza fissa per confinare i pallini sulla destra */
+    text-align: center;
+    vertical-align: middle;
+}
+
+.status-indicator-cell .status-dot,
+.status-indicator-cell .status-dash {
+    margin: 0 2px; /* Crea lo spazio tra i pallini per non farli toccare */
+}
+
+.status-dot {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.status-dot.status-standard {
+    background-color: #000; /* Black */
+}
+
+.status-dot.status-optional {
+    background-color: transparent;
+    border: 2px solid #000;
+    box-sizing: border-box;
+}
+
+.status-dash {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #333;
+    vertical-align: middle;
+}
+
+.status-value {
+    font-weight: bold;
+    font-size: 0.9em;
+    color: #333;
+    vertical-align: middle;
+}
+
+/* Legend Styles */
+#legend {
+    position: absolute;
+    top: 2em;
+    right: 2em;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border: 1px solid #ddd;
+    z-index: 10; /* Ensure it's on top of other content */
+}
+
+.legend-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.legend-item:last-child {
+    margin-bottom: 0;
+}
+
+.legend-item .status-dot {
+    margin-right: 10px;
+}
+
+.legend-item .status-dash {
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 1.2em;
+    width: 15px; /* To align with the dots */
+    display: inline-block;
+    text-align: center;
+}
+
+.status-indicator-cell {
+    width: 80px;
+    vertical-align: middle;
+    text-align: center; /* Allinea orizzontalmente i pallini al centro */
+    /* RIMOSSI: display: flex, justify-content, align-items e gap per non rompere la tabella */
+}
+
+/* Aggiungi questa regola per ricreare l'effetto "gap: 4px" tra i pallini/trattini */
+.status-indicator-cell .status-dot,
+.status-indicator-cell .status-dash {
+    margin: 0 2px; /* Aggiunge 2px a destra e sinistra, per un totale di 4px di spazio */
+}
+
+.note-cell {
+    vertical-align: middle;
+    width: 550px; /* Fixed width for the notes column */
+}
+
+.note-asterisk {
+    color: #c0392b;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.note-text {
+    font-size: 0.9em;
+    color: #555;
+    font-style: italic;
+}
+
+/* Styles for expandable rows */
+.expandable {
+    cursor: pointer;
+}
+
+.expand-arrow {
+    font-size: 0.8em;
+    color: #333;
+    transition: transform 0.2s;
+    display: inline-block; /* Allows transform to work */
+}
+
+.component-cell-relative {
+    position: relative;
+}
+
+.details-popover {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%; /* Position it just below the cell */
+    left: 15px; /* Start it a bit indented from the cell edge */
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    padding: 12px;
+    z-index: 100; /* Make sure it's on top */
+    min-width: 300px; /* Give it some width */
+    font-size: 0.9em;
+    color: #333;
+    text-align: left;
+}
+
+/* When the 'show' class is added by JS */
+.details-popover.show {
+    display: block;
+}
